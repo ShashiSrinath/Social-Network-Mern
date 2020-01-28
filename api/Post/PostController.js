@@ -68,19 +68,14 @@ const createPost = async (req, res) => {
     }
 
     //check the updated image file
-    const fileName = path.basename(req.body.image);
-    const fileExists = await fs.existsSync(`${__dirname}/../uploads/tmp/${fileName}`);
+    const fileExists = await Post.findOne({image: req.body.image});
     if (!fileExists) return res.status(400).json({status: 400, message: "Please upload a image"});
-
-    //move image to the /uploads/posts folder
-    await fs.renameSync(`${__dirname}/../uploads/tmp/${fileName}`, `${__dirname}/../uploads/posts/${fileName}`);
-    const imageDir = `uploads/posts/${fileName}`;
 
     //creating new post
     const newPost = {
         user: req.user._id,
         content: req.body.content,
-        image: imageDir
+        image: req.body.image
     };
     try {
         const savedPost = await Post.create(newPost);

@@ -7,4 +7,4 @@ router.get('/user/:id', checkToken, userController.showUser);
 router.get('/search/:query', checkToken , userController.searchUsers);
 router.put('/update', checkToken, userController.update);
 
-export default router;
+module.exports = router;
