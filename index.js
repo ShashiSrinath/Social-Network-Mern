@@ -30,6 +30,12 @@ app.use(`${apiPrefix}/comments`, commentRouter);
 app.use(`${apiPrefix}/posts`, postRouter);
 app.use(`${apiPrefix}/upload`, uploadRouter);
 
+
+// Client Files
+app.use(express.static('./client/build'));
+
+app.get('*', (req, res) => res.sendFile(path.resolve('client', 'build', 'index.html')));
+
 // ----------------------------------------Start server----------------------------------------------- //
 
 //database connection
