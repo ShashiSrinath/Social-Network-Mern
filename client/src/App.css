@@ -1,38 +1,108 @@
-.App {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app-container {
+  padding: 0;
+}
+
+.profile-bg{
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  background-color: #536DFE;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.profile-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+
+.post {
+  min-width: 400px;
+  width: 50vw;
+  min-height: 50vh;
+  margin: 20px 100px;
+}
+
+.post-image {
+  width: 100%;
+}
+.post-image-thumb {
+  width: 100px;
+}
+
+.comment-form {
+  width: 100%;
+}
+
+.comment-container {
+  background-color: #90909022;
+  padding: 20px 10px ;
+  border-radius: 15px;
+}
+
+
+.files {
+  display: flex;
+  width: 25vw;
+  border: 1px solid greenyellow;
+}
+
+.files input {
+  outline: 2px dashed #92b0b3;
+  outline-offset: -10px;
+  padding: 120px 0px 85px 35%;
+  text-align: center !important;
+  margin: 0;
+  opacity: 0;
+  width: 100% !important;
+}
+
+.files{ position:relative}
+.files:after {  pointer-events: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 50px;
+  right: 0;
+  height: 56px;
+  content: "";
+  background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png);
+  display: block;
+  margin: 0 auto;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.files:before {
+  position: absolute;
+  bottom: 10px;
+  left: 0;  pointer-events: none;
+  width: 100%;
+  right: 0;
+  height: 57px;
+  content: "Click here to select or drag the image here to upload. ";
+  display: block;
+  margin: 0 auto;
+  color: #2ea591;
+  font-weight: 600;
+  text-transform: capitalize;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.clickable:hover {
+  cursor: pointer;
 }

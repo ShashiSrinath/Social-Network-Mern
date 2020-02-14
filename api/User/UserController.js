@@ -1,11 +1,12 @@
 const User = require('./UserSchema');
+const userUpdateValidation = require('./validations/userUpdateValidation');
 
 //GET get current user
 const showCurrent = (req, res) => {
-    User.findById(req.session.currentUser.id, {password: 0, __v: 0}, (err, foundUser) => {
+    User.findById(req.user._id, {password: 0, __v: 0}, (err, foundUser) => {
         if (err) return res.status(500).json({status: 500, message: 'Something went wrong. Please try again'});
 
-        res.status(200).json({status: 200, data: foundUser});
+        res.status(200).json({status: 200, user: foundUser});
     });
 };
 
@@ -30,9 +31,9 @@ const searchUsers = async (req, res) => {
 const update = async (req, res) => {
     try {
         //find the user
-        const user = await User.findById(req.session.currentUser.id);
+        const user = await User.findById(req.user._id);
 
-        const {errors, notValid} = validate(req.body);
+        const {errors, notValid} = userUpdateValidation(req.body);
 
         // Validate Form Data
         if (notValid) {
@@ -42,28 +43,12 @@ const update = async (req, res) => {
         //update user
         user.name = req.body.name;
         user.email = req.body.email;
-
+        console.log(req.body);
         //check the updated image file
         if (req.body.avatar) {
-            const fileName = path.basename(req.body.avatar);
-            const fileExists = await fs.existsSync(`${__dirname}/../uploads/tmp/${fileName}`);
-            if (fileExists) {
-                //move image to the /uploads/posts folder
-                await fs.renameSync(`${__dirname}/../uploads/tmp/${fileName}`, `${__dirname}/../uploads/users/${fileName}`);
-                const imageDir = `uploads/users/${fileName}`;
-
-                //delete previous avatar
-                if (user.avatar !== 'uploads/default/user.png') {
-                    fs.unlink(user.avatar, (err) => {
-                        console.log(err);
-                    });
-                }
-
-
-                user.avatar = imageDir;
-
-            }
+            user.avatar = req.body.avatar;
         }
+        
 
         //save user
         try {

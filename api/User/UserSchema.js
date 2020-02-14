@@ -13,7 +13,7 @@ const userSchema = new Schema({
     },
     avatar: {
         type: String,
-        default: 'uploads/default/user.png'
+        default: 'https://res.cloudinary.com/social-network-profghost/image/upload/v1580289214/default/user_vx7jrl.png'
     },
     email: {
         type: String,

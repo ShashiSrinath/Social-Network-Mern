@@ -69,7 +69,7 @@ const createPost = async (req, res) => {
 
     //check the updated image file
     const fileExists = await Post.findOne({image: req.body.image});
-    if (!fileExists) return res.status(400).json({status: 400, message: "Please upload a image"});
+    if (fileExists) return res.status(400).json({status: 400, message: "Please upload a image"});
 
     //creating new post
     const newPost = {
