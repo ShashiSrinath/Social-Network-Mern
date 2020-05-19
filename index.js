@@ -1,9 +1,11 @@
+const path = require('path');
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const PORT = process.env.PORT || 4000;
 const DB_URI = process.env.DB_URI || 'mongodb://localhost:27017/dbname';
+
 
 const apiPrefix = '/api/v1';
 
