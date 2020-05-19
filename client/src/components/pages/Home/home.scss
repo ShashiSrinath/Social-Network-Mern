@@ -21,7 +21,7 @@
 
   &__heading-primary-main {
     display: block;
-    font-size: 48px;
+    font-size: 5vw;
     font-weight: 600;
     letter-spacing: 35px;
     margin-bottom: 40px;
@@ -31,7 +31,7 @@
 
   &__heading-primary-sub {
     display: block;
-    font-size: 20px;
+    font-size: 2vw;
     font-weight: 400;
     letter-spacing: 10px;
 
@@ -39,12 +39,14 @@
   }
 
   &__btn-register {
+    font-size: 2vh;
     margin-right: 10px;
     animation: moveInBottom .5s ease-out .75s;
     animation-fill-mode: backwards;
   }
 
   &__btn-login {
+    font-size: 2vh;
     animation: moveInBottom .5s ease-out .75s;
     animation-fill-mode: backwards;
   }
