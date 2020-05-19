@@ -34,7 +34,6 @@ const Login = (props) => {
         event.preventDefault();
         axios.post(`${API_URL}/auth/login`, state)
             .then(res => {
-                console.log(res);
                 mangeJWT.set(res.data.token);
                 axios.get(`${API_URL}/users`)
                     .then(res => {
@@ -44,7 +43,6 @@ const Login = (props) => {
                     });
             })
             .catch(err => {
-                console.log(err);
                 if (err.response && err.response.data) {
                     setState({...state, error: err.response.data.message});
                 }
