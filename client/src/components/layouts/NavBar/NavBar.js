@@ -39,7 +39,7 @@ const NavBar = (props) => {
   );
 
   return (
-    <nav className="navbar navbar-expand-md bg-dark navbar-dark ">
+    <nav className="navbar navbar-expand-md bg-primary navbar-dark ">
       <div className="container">
         <Link className="navbar-brand" to={user.state ? "/feed" : "/"}>Social Network</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">

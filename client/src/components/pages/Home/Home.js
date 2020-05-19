@@ -13,7 +13,7 @@ const Home = () => {
                 </h1>
 
                 <Button text='Register' to='/register' className='btn-primary landing__btn-register'/>
-                <Button text='Login' to='/login' className='btn-primary-outline landing__btn-login'/>
+                <Button text='Login' to='/login' className='btn-success landing__btn-login'/>
             </div>
         </header>
     )
