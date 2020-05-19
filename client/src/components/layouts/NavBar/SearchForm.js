@@ -19,7 +19,7 @@ const SearchForm = (props) => {
                 <form className="form-inline " onSubmit={handleSubmit}>
                     <input className="form-control" type="search" placeholder="Search user" aria-label="Search"
                            value={query} onChange={handleInput}/>
-                    <button className="btn btn-search btn-outline-success" type="submit">Search</button>
+                    <button className="btn btn-search btn-success" type="submit">Search</button>
                 </form>
     )
 };

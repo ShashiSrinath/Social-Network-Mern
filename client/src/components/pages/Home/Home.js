@@ -8,7 +8,7 @@ const Home = () => {
         <header className='landing'>
             <div className='landing__text-box'>
                 <h1 className='landing__heading-primary'>
-                    <span className='landing__heading-primary-main'>Social Network</span>
+                    <span className='landing__heading-primary-main'>Teral Network</span>
                     <span className='landing__heading-primary-sub'>Stay Connected With Your Loved Ones</span>
                 </h1>
 
